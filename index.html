@@ -9,6 +9,9 @@
             width: 40%;
             margin: auto;
         }
+        img {
+            width: 50px;
+        }
     </style>
 </head>
 <body id="body">
@@ -18,118 +21,7 @@
 </div>
 
 <button type="button" onclick="addDice()">Add Dice</button>
-
-<script>
-var diceBox = document.getElementById("dice-box");
-   
-
-var numberOfDice = 2;        
-function rollDice () {
-    //IF THERE ARE TWO DICE IN THE BOX
-    if (numberOfDice == 2) {
-        var magicNumberOne = Math.floor((Math.random() * 6) + 1);
-        var magicNumberTwo = Math.floor((Math.random() * 6) + 1);
-        console.log(magicNumberOne, magicNumberTwo);
-        //DICE ONE
-        if (magicNumberOne == 1) {
-            dice1.src = "images/faceone.png";
-        } else if (magicNumberOne == 2) {
-            dice1.src = "images/facetwo.png";
-        } else if (magicNumberOne == 3) {
-            dice1.src = "images/facethree.png";
-        } else if (magicNumberOne == 4) {
-            dice1.src = "images/facefour.png";
-        } else if (magicNumberOne == 5) {
-            dice1.src = "images/facefive.png";
-        } else if (magicNumberOne == 6) {
-            dice1.src = "images/facesix.png";
-        }
-        //DICE TWO
-        if (magicNumberTwo == 1) {
-            dice2.src = "images/faceone.png";
-        } else if (magicNumberTwo == 2) {
-            dice2.src = "images/facetwo.png";
-        } else if (magicNumberTwo == 3) {
-            dice2.src = "images/facethree.png";
-        } else if (magicNumberTwo == 4) {
-            dice2.src = "images/facefour.png";
-        } else if (magicNumberTwo == 5) {
-            dice2.src = "images/facefive.png";
-        } else if (magicNumberTwo == 6) {
-            dice2.src = "images/facesix.png";
-        }
-    }
-
-    //IF THERE ARE THREE DICE IN THE BOX 
-    if (numberOfDice == 3) {
-        var magicNumberOne = Math.floor((Math.random() * 6) + 1);
-        var magicNumberTwo = Math.floor((Math.random() * 6) + 1);
-        var magicNumberThree = Math.floor((Math.random() * 6) + 1);
-        console.log(magicNumberOne, magicNumberTwo, magicNumberThree);
-        dice1 = document.getElementById("dice1");
-        dice2 = document.getElementById("dice2");
-        dice3 = document.getElementById("dice3");
-        //DICE ONE 
-        if (magicNumberOne == 1) {
-            dice1.src = "images/faceone.png";
-        } else if (magicNumberOne == 2) {
-            dice1.src = "images/facetwo.png";
-        } else if (magicNumberOne == 3) {
-            dice1.src = "images/facethree.png";
-        } else if (magicNumberOne == 4) {
-            dice1.src = "images/facefour.png";
-        } else if (magicNumberOne == 5) {
-            dice1.src = "images/facefive.png";
-        } else if (magicNumberOne == 6) {
-            dice1.src = "images/facesix.png";
-        }
-        //DICE TWO
-        if (magicNumberTwo == 1) {
-            dice2.src = "images/faceone.png";
-        } else if (magicNumberTwo == 2) {
-            dice2.src = "images/facetwo.png";
-        } else if (magicNumberTwo == 3) {
-            dice2.src = "images/facethree.png";
-        } else if (magicNumberTwo == 4) {
-            dice2.src = "images/facefour.png";
-        } else if (magicNumberTwo == 5) {
-            dice2.src = "images/facefive.png";
-        } else if (magicNumberTwo == 6) {
-            dice2.src = "images/facesix.png";
-        }
-        //DICE THREE
-        if (magicNumberThree == 1) {
-            dice3.src = "images/faceone.png";
-        } else if (magicNumberThree == 2) {
-            dice3.src = "images/facetwo.png";
-        } else if (magicNumberThree == 3) {
-            dice3.src = "images/facethree.png";
-        } else if (magicNumberThree == 4) {
-            dice3.src = "images/facefour.png";
-        } else if (magicNumberThree == 5) {
-            dice3.src = "images/facefive.png";
-        } else if (magicNumberThree == 6) {
-            dice3.src = "images/facesix.png";
-        }
-    }
-}
-
-function addDice() {
-    numberOfDice++;
-    var newDice = document.createElement("img");
-    newDice.id = "dice" + numberOfDice;
-    diceBox.appendChild(newDice);
-    newDice.src = "images/faceone.png";
-    console.log("there are " + numberOfDice + " dice.");
-}
-
-
-
-        
-//TOMORROW ADD THE FEATURE THAT LETS YOU CALCULATE YOUR ROLL. THEN ADD MORE DICE,
-//AND MAKE IT SO YOU CAN ADD AND SUBTRACT DICE. 
-
-
-    </script>
+<button type="button" onclick="subtractDice()">Subtract Dice</button>
+<script src="app.js"> </script>
 </body>
 </html>
