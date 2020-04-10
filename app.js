@@ -121,48 +121,80 @@ function rollDice () {
 //end function roll Dice
 
 //START FUNCTION ADD DICE 
-diceAdder = 0;
-function addDice() {
-    
-    if (diceAdder <= 2) {
-        diceAdder++;
-        console.log("you have added " + diceAdder + " dice")
-        if (numberOfDice < 5) {
-            numberOfDice++;
-            var newDice = document.createElement("img");
-            newDice.id = "dice" + numberOfDice;
-            diceBox.appendChild(newDice);
-            newDice.src = "images/faceone.png";
-            console.log("there are " + numberOfDice + " dice.");
-            //assign the new dice to their global
-            dice3 = document.getElementById("dice3");
-            dice4 = document.getElementById("dice4");
-            dice5 = document.getElementById("dice5");
-        }
+var addedDice;
+addedDice = 0;
+function addDice () {
+    if (addedDice <= 2) {
+        numberOfDice++;
+        var newDice = document.createElement("img");
+        newDice.id = "dice" + (addedDice + 3);
+        newDice.src = "images/faceone.png";
+        diceBox.appendChild(newDice);
+        console.log(newDice.id + " has been added.");
+        addedDice++;
+        dice3 = document.getElementById("dice3");
+        dice4 = document.getElementById("dice4");
+        dice5 = document.getElementById("dice5");
+        
+        
     }
+
+    if (addedDice >= 3 && numberOfDice < 5) {
+        if (numberOfDice == 0) {
+            dice1.style.display =  "block";
+            console.log("dice1 is now showing")
+        }
+        if (numberOfDice == 1) {
+            dice2.style.display =  "block";
+            console.log("dice2 is now showing")
+        }
+        if (numberOfDice == 2) {
+            dice3.style.display =  "block";
+            console.log("dice3 is now showing")
+        }
+        if (numberOfDice == 3) {
+            dice4.style.display =  "block";
+            console.log("dice4 is now showing")
+        }
+        if (numberOfDice == 4) {
+            dice5.style.display =  "block";
+            console.log("dice5 is now showing")
+        }
+        numberOfDice++;
+    }
+
+
+    console.log("you have added a total of " + addedDice + " dice.")
+    console.log("the numberofdice is " + numberOfDice)
+       
 }
 //end function add dice 
 
-//START FUNCTION SUBTRACT DICE 
+//START FUNCTION SUBTRACT DICE WHICH HIDES THE DICE.
     function subtractDice() {
         if (numberOfDice > 0) {
             if (numberOfDice == 5) {
                 dice5.style.display = "none";
+                console.log("dice5 has been hidden")
             }
             if (numberOfDice == 4) {
                 dice4.style.display = "none";
+                console.log("dice4 has been hidden")
             }
             if (numberOfDice == 3) {
                 dice3.style.display = "none";
+                console.log("dice3 has been hidden")
             }
             if (numberOfDice == 2) {
                 dice2.style.display = "none";
+                console.log("dice2 has been hidden")
             }
             if (numberOfDice == 1) {
                 dice1.style.display = "none";
+                console.log("dice1 has been hidden")
             }
             numberOfDice--;
-            console.log("there are " + numberOfDice  + " dice");
+            console.log("the dicenumber is " + numberOfDice);
         }
     }
 
@@ -174,4 +206,4 @@ function addDice() {
 
         
 //TOMORROW ADD THE FEATURE THAT LETS YOU CALCULATE YOUR ROLL. THEN ADD MORE DICE,
-//AND MAKE IT SO YOU CAN ADD AND SUBTRACT DICE. 
+//AND MAKE IT SO YOU CAN ADD AND SUBTRACT 
