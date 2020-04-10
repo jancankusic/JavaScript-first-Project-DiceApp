@@ -9,7 +9,7 @@ var numberOfDice = 2;
 var diceBox = document.getElementById("dice-box");
 
     //DICE 
-var dice1, dice2, dice3, dice4, dice5;
+var dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8;
 dice1 = document.getElementById("dice1");
 dice2 = document.getElementById("dice2");
 //remaining dice are demined in add dice.// IT IS PROBABLY BEST TO RETURN THE ABOVE ASSINGMENTS TO HAPPEN WHEN YOU ROLL DICE. 
@@ -115,7 +115,28 @@ function rollDice () {
             dice5.src = "images/facefive.png";
         } else if (magicNumberFive == 6) {
             dice5.src = "images/facesix.png";
-        }
+        }   
+    }
+
+    //IF THERE ARE SIX DICE IN THE BOX 
+    if (numberOfDice >= 6) {
+        var magicNumberSix;
+        magicNumberSix = Math.floor((Math.Random * 6) + 1);
+        console.log(magicNumberSix);
+        //DICE SIX
+        if (magicNumberSix == 1) {
+            dice6.src = "images/faceone.png";
+        } else if (magicNumberSix == 2) {
+            dice6.src = "images/facetwo.png";
+        } else if (magicNumberSix == 3) {
+            dice6.src = "images/facethree.png";
+        } else if (magicNumberSix == 4) {
+            dice6.src = "images/facefour.png";
+        } else if (magicNumberSix == 5) {
+            dice6.src = "images/facefive.png";
+        } else if (magicNumberSix == 6) {
+            dice6.src = "images/facesix.png";
+        }   
     }
 }
 //end function roll Dice
