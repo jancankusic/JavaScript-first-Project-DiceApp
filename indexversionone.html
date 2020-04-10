@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            background-color: blue;
+        }
+        .content-wrapper {
+            border: 2px solid white;
+            width: 20%;
+            margin: auto;
+            border: 2px solid white;
+        }
+        .dice-wrapper {
+            flex-basis: 50%;
+        }
+        #dice-box {
+            
+            display: flex;
+            flex-wrap: wrap;
+        }
+        img {
+            width: 100%;
+        }
+        .roll-number-box {
+            flex-basis: 100%;
+        
+        }
+        h1 {
+            font-size: 4rem;
+            padding: 0;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+
+        button {
+            width: 50%;
+            margin-left: 25%;
+            font-size: 3rem;
+            background-color:transparent;
+            border-width: 0px;
+        }
+
+    </style>
+</head>
+
+
+<body id="body" onclick="changeColor()">
+<div class="content-wrapper">
+    <div id="dice-box" onclick="rollDice()">
+        <div class="dice-wrapper">
+            <img id="dice-one" src="images/faceone.png">
+        </div>
+
+        <div class="dice-wrapper">
+            <img id="dice-two" src="images/faceone.png">
+        </div>
+    </div>
+
+    <div class="roll-number-box">
+        <h1 id="roll-number-wrapper"></h1>
+    </div> 
+
+    <button type="button" onclick="addDice(); diceCounter()">Add Dice</button>
+    
+</div>   
+    
+
+
+
+
+
+
+    <script>
+        colorNumber = 0;
+        function changeColor () {
+            color = document.getElementById("body");
+            if (colorNumber <= 0) {
+                color.style.backgroundColor = "red";
+                colorNumber++;
+            } else if (colorNumber <= 1) {
+                color.style.backgroundColor = "green";
+                colorNumber ++;
+            } else if (colorNumber <= 2) {
+                color.style.backgroundColor = "yellow";
+                colorNumber ++;
+            } else if (colorNumber <= 3) {
+                color.style.backgroundColor = "turquoise";
+                colorNumber ++;
+            } else if (colorNumber <= 4) {
+                color.style.backgroundColor = "pink";
+                colorNumber ++;
+            } else if (colorNumber <= 5) {
+                color.style.backgroundColor = "chartreuse";
+                colorNumber ++;
+            } else {
+                color.style.backgroundColor = "blue";
+                colorNumber = 0;
+            }
+        }
+// AFTERWARDS CREATE A LOOP THAT REPEATS THIS ACTION FOR THE NUMBER OF DICE ON THE SCREEN :)
+        
+diceNumber = 2;     
+        
+function rollDice () {
+            var diceOne = document.getElementById("dice-one");
+            var diceTwo = document.getElementById("dice-two");
+            var number = Math.floor((Math.random() * 6) + 1);
+            var numberTwo = Math.floor((Math.random() * 6) + 1);
+            
+            console.log(number);
+            console.log(numberTwo);
+            if (number == 1) {
+                diceOne.src = "images/faceone.png"
+            } else if (number == 2) {
+                diceOne.src = "images/facetwo.png";
+            } else if (number == 3) {
+                diceOne.src = "images/facethree.png";
+            } else if (number == 4) {
+                diceOne.src = "images/facefour.png";
+            } else if (number == 5) {
+                diceOne.src = "images/facefive.png";
+            } else if (number == 6) {
+                diceOne.src = "images/facesix.png";
+            }
+
+            if (numberTwo == 1) {
+                diceTwo.src = "images/faceone.png"
+            } else if (numberTwo == 2) {
+                diceTwo.src = "images/facetwo.png";
+            } else if (numberTwo == 3) {
+                diceTwo.src = "images/facethree.png";
+            } else if (numberTwo == 4) {
+                diceTwo.src = "images/facefour.png";
+            } else if (numberTwo == 5) {
+                diceTwo.src = "images/facefive.png";
+            } else if (numberTwo == 6) {
+                diceTwo.src = "images/facesix.png";
+            }
+
+            if (diceNumber == 3) {
+                var newDiceImage = document.getElementById("diceThreeImage");
+                var numberThree = 1;
+                if (numberThree == 1) {
+                newDiceImage.src = "images/faceone.png"
+                } else if (numberThree == 2) {
+                newDiceImage.src = "images/facetwo.png";
+                } else if (numberThree == 3) {
+                newDiceImage.src = "images/facethree.png";
+                } else if (numberThree == 4) {
+                newDiceImage.src = "images/facefour.png";
+                } else if (numberThree == 5) {
+                newDiceImage.src = "images/facefive.png";
+                } else if (numberThree == 6) {
+                newDiceImage.src = "images/facesix.png";
+                }
+                numberThree++;
+            } 
+            var rollNumber = number + numberTwo;
+            console.log(rollNumber);
+            document.getElementById("roll-number-wrapper").innerHTML = rollNumber;
+}
+
+function addDice () {
+        var newDice = document.createElement("div");
+        newDice.id = "diceThree";
+        var diceBox = document.getElementById("dice-box");
+        diceBox.appendChild(newDice);
+        var newDiceImage = document.createElement("img");
+        newDiceImage.id = "diceThreeImage";
+        newDice.appendChild(newDiceImage);
+        newDice.style.cssText = "width:40px;";
+        newDiceImage.src = "images/faceone.png";
+        diceNumber++;
+        console.log("You have " + diceNumber + " Dice")
+        return diceNumber;
+}
+
+function diceCounter () {
+    console.log("dice is " + diceNumber);
+}
+        
+       
+       
+        
+
+
+
+    </script>
+</body>
+</html>
