@@ -1,20 +1,16 @@
-//Create HTML
+
 var body, diceBox, dice1, dice2, addButton, subtractButton;
 var rollNumber, rollNumberBox;
 
-
-//START DICEBOX 
-    //CREATE DICEBOX 
+//HTML STUFF 
+//CREATE DICEBOX 
 diceBox = document.createElement("div");
 diceBox.id = "dice-box";
 document.body.appendChild(diceBox);
 diceBox.setAttribute("onclick","rollDice()");
-    //ADD DICEBOX STYLES
-diceBox.style.cssText = ("width:50%; margin:auto;")
-//end dicebox
 
-//START DICE1 AND DICE2
-    //CREATE DICE1 AND DICE 2
+
+//CREATE DICE1 AND DICE 2
 dice1 = document.createElement("img");
 dice1.id = "dice1";
 diceBox.appendChild(dice1);
@@ -24,10 +20,7 @@ dice2 = document.createElement("img");
 dice2.id = "dice2";
 diceBox.appendChild(dice2);
 dice2.src = "images/faceone.png"
-    //ADD DICE STYLES
 //end dice1 and dice2
-
-
 
 //CREATE ADD AND SUBTRACT BUTTONS
 addButton = document.createElement("button");
@@ -46,18 +39,20 @@ subtractButton.setAttribute("onclick","subtractDice()");
 rollNumberBox = document.createElement("div");
 rollNumberBox.id = "roll-number-box";
 document.body.appendChild(rollNumberBox);
-rollNumberBox.style.cssText = ("margin:auto; text-align:center; width:5rem; font-size:4rem; padding:2rem; border-width:2px; border-color:white; border-style:solid;");
+//endhtml stuff
+
+//CSS STUFF
+diceBox.style.cssText = ("width:30%; margin:auto; height:50vh;");
+rollNumberBox.style.cssText = ("margin:auto; text-align:center; width:5rem; font-size:4rem; padding:2rem; margin-top:100px;");
+addButton.style.cssText = ("position:absolute; background-color:rgba(20, 20, 20, 0.2); border-radius:100%; padding:30px; font-size:2rem; top:45%; left:10%;");
+subtractButton.style.cssText = ("position:absolute; background-color:rgba(20, 20, 20, 0.2); border-radius:100%; padding:30px; font-size:2rem; top:45%; right:10%;");
 
 
 
 
 
 
-
-//START FUNCTIONS 
-
-
-
+//FUNCTIONS 
 //DICE ADDITION AND SUBTRACTION FUNCTIONS 
 diceNumber = 2;
     //START Add Dice
@@ -80,16 +75,16 @@ function addDice () {
 
         if (hiddenDice > 0) {
             if (diceNumber == 0) {
-                dice1.style.display = "block";
+                dice1.style.display = "inline-block";
             }
             if (diceNumber == 1) {
-                dice2.style.display = "block";
+                dice2.style.display = "inline-block";
             }
             if (diceNumber == 2) {
-                dice3.style.display = "block";
+                dice3.style.display = "inline-block";
             }
             if (diceNumber == 3) {
-                dice4.style.display = "block";
+                dice4.style.display = "inline-block";
             }
             diceNumber++;
             hiddenDice--;
@@ -226,4 +221,33 @@ function rollDice () {
      //SHOW ROLL NUMBER
      console.log("Rollnumber is ",  rollNumber);
      rollNumberBox.innerHTML = rollNumber; 
+     rollNumberBox.style.cssText = ("border-width:2px; border-color:white; border-style:solid; font-size:6rem; width:8%; text-align:center; margin:auto; margin-top:180px;")
+}
+
+//COLOR FUNCTION 
+colorNumber = 0;
+function changeColor () {
+    color = document.getElementById("body");
+    if (colorNumber <= 0) {
+        color.style.backgroundColor = "red";
+        colorNumber++;
+    } else if (colorNumber <= 1) {
+        color.style.backgroundColor = "green";
+        colorNumber ++;
+    } else if (colorNumber <= 2) {
+        color.style.backgroundColor = "yellow";
+        colorNumber ++;
+    } else if (colorNumber <= 3) {
+        color.style.backgroundColor = "turquoise";
+        colorNumber ++;
+    } else if (colorNumber <= 4) {
+        color.style.backgroundColor = "pink";
+        colorNumber ++;
+    } else if (colorNumber <= 5) {
+        color.style.backgroundColor = "chartreuse";
+        colorNumber ++;
+    } else {
+        color.style.backgroundColor = "blue";
+        colorNumber = 0;
+    }
 }
